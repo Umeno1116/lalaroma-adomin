@@ -29,10 +29,15 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './public/index.html',
+            template: './public/index.html', // 既存のindex.html用の設定
             filename: 'index.html'
         }),
+        new HtmlWebpackPlugin({
+            template: './public/main.html', // main.html用の設定を追加
+            filename: 'main.html'
+        }),
     ],
+
     devServer: {
         static: path.join(__dirname, 'dist'),
         compress: true,
