@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    devtool: 'source-map', // 'eval'を含まないソースマップオプションに変更する
     mode: 'development',
     entry: './src/scripts/index.js', // 修正: 不要なピリオドを削除
     output: {
