@@ -1,22 +1,22 @@
-// index.js
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
 
-const loginForm = document.querySelector('#loginForm');
+document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.querySelector('#loginForm');
 
-loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = loginForm['email'].value;
-    const password = loginForm['password'].value;
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = loginForm['email'].value;
+            const password = loginForm['password'].value;
 
-    try {
-        await signInWithEmailAndPassword(auth, email, password);
-        console.log('ログインに成功しました。');
-        // ログインが成功したらmain.htmlにリダイレクト
-        window.location.href = './main.html'; // 'public'は削除して、dist内の正しいパスを指定
-
-    } catch (error) {
-        console.error('ログインに失敗しました:', error.message);
-        // ログイン失敗時のエラーハンドリング
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                console.log('ログインに成功しました。');
+                window.location.href = './main.html';
+            } catch (error) {
+                console.error('ログインに失敗しました:', error.message);
+            }
+        });
     }
 });
