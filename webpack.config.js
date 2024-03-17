@@ -1,15 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map', // 'eval'を含まないソースマップオプションに変更する
     mode: 'development',
-    entry: './src/scripts/index.js', // 修正: 不要なピリオドを削除
+    entry: './src/scripts/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         publicPath: '/'
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -22,12 +23,13 @@ module.exports = {
                     },
                 },
             },
-            // 他のローダーの設定...
+            // ここに他のローダー（CSSや画像用など）の設定を追加
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './public/index.html', // 修正: 不要なピリオドを削除
+            template: './public/index.html',
             filename: 'index.html'
         }),
     ],
@@ -35,7 +37,11 @@ module.exports = {
         static: path.join(__dirname, 'dist'),
         compress: true,
         port: 8080,
-        historyApiFallback: true,
-    },
-    // 必要に応じてその他の設定...
+        historyApiFallback: {
+            rewrites: [
+                { from: /^\/$/, to: '/index.html' }, // ルートへのアクセスをindex.htmlにリダイレクト
+                { from: /^\/main.html$/, to: '/main.html' } // main.htmlへのアクセス設定
+            ]
+        }
+    }
 };

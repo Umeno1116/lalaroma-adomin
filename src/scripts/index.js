@@ -12,8 +12,9 @@ loginForm.addEventListener('submit', async (e) => {
     try {
         await signInWithEmailAndPassword(auth, email, password);
         console.log('ログインに成功しました。');
-        // ログインが成功したらindex.htmlにリダイレクト
-        window.location.href = 'public/main.html';
+        // ログインが成功したらmain.htmlにリダイレクト
+        window.location.href = './main.html'; // 'public'は削除して、dist内の正しいパスを指定
+
     } catch (error) {
         console.error('ログインに失敗しました:', error.message);
         // ログイン失敗時のエラーハンドリング
