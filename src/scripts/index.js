@@ -1,5 +1,8 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
+import "../styles/sidebars.css"; // CSSファイルのインポート
+import "./sidebars.js"; // sidebars.jsのインポート
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.querySelector('#loginForm');
