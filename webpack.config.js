@@ -23,29 +23,33 @@ module.exports = {
                     },
                 },
             },
-            // ここに他のローダー（CSSや画像用など）の設定を追加
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            // 画像用のローダー設定をここに追加（例：file-loaderやurl-loader）
         ],
+
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './public/index.html', // 既存のindex.html用の設定
+            template: './public/index.html',
             filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
-            template: './public/main.html', // main.html用の設定を追加
+            template: './public/main.html',
             filename: 'main.html'
         }),
     ],
-
     devServer: {
         static: path.join(__dirname, 'dist'),
         compress: true,
         port: 8080,
         historyApiFallback: {
             rewrites: [
-                { from: /^\/$/, to: '/index.html' }, // ルートへのアクセスをindex.htmlにリダイレクト
-                { from: /^\/main.html$/, to: '/main.html' } // main.htmlへのアクセス設定
+                { from: /^\/$/, to: '/index.html' },
+                { from: /^\/main.html$/, to: '/main.html' }
             ]
         }
     }
