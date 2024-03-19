@@ -4,41 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSPを設定し、'self'からのスクリプトの読み込みと、Firebaseの認証エンドポイントへの接続を許可 -->
+    <!-- CSPを修正し、必要なソースを許可 -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; connect-src 'self' https://identitytoolkit.googleapis.com;">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com; style-src 'self' https://stackpath.bootstrapcdn.com; connect-src 'self' https://identitytoolkit.googleapis.com;">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <title>Document</title>
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com; style-src 'self' https://stackpath.bootstrapcdn.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com;">
+    <title>管理画面</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+                    <a href="#" class="list-group-item list-group-item-action">Orders</a>
+                    <a href="#" class="list-group-item list-group-item-action">Products</a>
+                    <a href="#" class="list-group-item list-group-item-action">Customers</a>
+                    <a href="#" class="list-group-item list-group-item-action">Reports</a>
+                    <a href="#" class="list-group-item list-group-item-action">Integrations</a>
+                </div>
+            </div>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <h2>Main Content Here</h2>
+                <p>This is the main content area. Add your page content here.</p>
+            </main>
         </div>
-    </nav>
-    <script src="./bundle.js"></script> <!-- Ensure this is the correct path to your bundled JS -->
-
+    </div>
+    <script src="./bundle.js"></script>
 </body>
 
 </html>
