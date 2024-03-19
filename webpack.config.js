@@ -27,30 +27,28 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
-            // 画像用のローダー設定をここに追加（例：file-loaderやurl-loader）
+            // 画像やその他のファイルタイプ用のローダーをここに追加
         ],
-
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            filename: 'index.html'
+            filename: 'index.html',
+            favicon: './src/images/favicon.ico' // faviconのパスを指定
+
         }),
         new HtmlWebpackPlugin({
             template: './public/main.html',
-            filename: 'main.html'
+            filename: 'main.html',
+            favicon: './src/images/favicon.ico' // faviconのパスを指定
+
         }),
     ],
     devServer: {
         static: path.join(__dirname, 'dist'),
         compress: true,
         port: 8080,
-        historyApiFallback: {
-            rewrites: [
-                { from: /^\/$/, to: '/index.html' },
-                { from: /^\/main.html$/, to: '/main.html' }
-            ]
-        }
+        historyApiFallback: true
     }
 };
