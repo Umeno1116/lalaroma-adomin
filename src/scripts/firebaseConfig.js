@@ -1,8 +1,7 @@
-// firebaseConfig.js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase設定
 const firebaseConfig = {
     apiKey: "AIzaSyC7G6fEEl3I3t_VgA9L4W4EWffN93jIjz0",
     authDomain: "blchatapp01.firebaseapp.com",
@@ -14,8 +13,8 @@ const firebaseConfig = {
     measurementId: "G-63E7RPV4X4"
 };
 
-// Firebaseアプリの初期化
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export { auth };
+// appもエクスポートする
+export { app, auth, firebaseConfig };

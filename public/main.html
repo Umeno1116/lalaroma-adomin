@@ -4,32 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSPを修正し、必要なソースを許可 -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com; style-src 'self' https://stackpath.bootstrapcdn.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+             script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.firebasedatabase.app https://*.googleapis.com;
+             connect-src 'self' https://*.firebasedatabase.app https://*.googleapis.com wss://*.firebasedatabase.app;
+             style-src 'self' 'unsafe-inline';
+             img-src 'self' data:;">
+    <link rel="stylesheet" href="/styles/main.34158538dcfacc1267a2.css">
     <title>管理画面</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
-                    <a href="#" class="list-group-item list-group-item-action">Orders</a>
-                    <a href="#" class="list-group-item list-group-item-action">Products</a>
-                    <a href="#" class="list-group-item list-group-item-action">Customers</a>
-                    <a href="#" class="list-group-item list-group-item-action">Reports</a>
-                    <a href="#" class="list-group-item list-group-item-action">Integrations</a>
-                </div>
-            </div>
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <h2>Main Content Here</h2>
-                <p>This is the main content area. Add your page content here.</p>
-            </main>
+    <div class="topbar-component">
+        <div class="home-icon-wrapper">
+            <a href="#">
+                <img src="favicon.ico" alt="Home">
+                <span>RARAROMA</span>
+            </a>
         </div>
     </div>
-    <script src="./bundle.js"></script>
+    <div class="sidebar-component sidebar-shadow">
+        <ul>
+            <li><a href="main.html">home</a></li>
+            <li><a href="dashboard.html">dashboard</a></li>
+            <li><a href="orders.html">orders</a></li>
+            <li><a href="products.html">products</a></li>
+            <li><a href="customers.html">customers</a></li>
+        </ul>
+    </div>
+    <div class="dashboard-content">
+        <div class="chat-section">
+            <h2>ユーザーからのメッセージ</h2>
+            <div id="user-messages">
+                <!-- ユーザーのメッセージがここに表示されます -->
+            </div>
+        </div>
+        <div class="reply-section">
+            <h2>キャラクターからの返信</h2>
+            <textarea id="reply-message" placeholder="返信を入力..."></textarea>
+            <button id="send-reply">返信を送信</button>
+        </div>
+    </div>
+    <script src="/bundle.js"></script>
 </body>
 
 </html>

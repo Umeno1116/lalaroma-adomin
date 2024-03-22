@@ -1,7 +1,10 @@
+//index.js
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebaseConfig.js';
-import "../styles/sidebars.css"; // CSSファイルのインポート
-import "./sidebars.js"; // sidebars.jsのインポート
+import '../styles/main.css';
+import './main.js';
+// その他のJavaScriptコードやインポート
+
 
 
 document.addEventListener('DOMContentLoaded', function () {

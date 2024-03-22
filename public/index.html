@@ -1,12 +1,14 @@
+<!--index.html-->
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSPを設定し、'self'からのスクリプトの読み込みと、Firebaseの認証エンドポイントへの接続を許可 -->
+    <!-- CSPを設定し、'self'からのスクリプトとスタイルの読み込みと、Firebaseの認証エンドポイントへの接続を許可 -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; connect-src 'self' https://identitytoolkit.googleapis.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-eval' https://*.firebasedatabase.app https://*.googleapis.com; connect-src 'self' https://*.firebasedatabase.app https://*.googleapis.com;">
+    <!-- CSSファイルへのパスを修正 -->
     <title>ログイン画面</title>
 </head>
 
@@ -27,7 +29,7 @@
         </div>
     </form>
     <!-- スクリプトファイルを外部から読み込む -->
-    <script src="./bundle.js"></script>
+    <script src="/dist/bundle.js"></script>
 </body>
 
 </html>
