@@ -7,10 +7,12 @@
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     connect-src 'self' wss://s-apse1b-nss-208.asia-southeast1.firebasedatabase.app https://blchatapp01-default-rtdb.asia-southeast1.firebasedatabase.app;
-    script-src 'self' https://blchatapp01-default-rtdb.asia-southeast1.firebasedatabase.app;
+    script-src 'self' 'unsafe-eval' https://blchatapp01-default-rtdb.asia-southeast1.firebasedatabase.app;
 ">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self';script-src 'self' 'unsafe-eval';">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval';">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https://securetoken.googleapis.com;
+    connect-src 'self' https://securetoken.googleapis.com;
+">
 
     <title>管理画面</title>
 </head>
