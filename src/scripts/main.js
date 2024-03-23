@@ -3,8 +3,8 @@ import { getDatabase, ref, query, orderByChild, onValue } from 'firebase/databas
 import { firebaseConfig } from './firebaseConfig';
 
 // Firebaseアプリを初期化
-initializeApp(firebaseConfig);
-const database = getDatabase();
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 // チャットメッセージをHTMLに表示する関数
 function displayChatMessage(message) {
