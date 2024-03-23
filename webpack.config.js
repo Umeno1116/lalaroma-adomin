@@ -41,11 +41,29 @@ module.exports = {
             template: './public/index.html', // index.html のテンプレート
             filename: 'index.html', // 出力される HTML ファイル名
             inject: true, // バンドルされた JS を自動的に挿入
+            meta: {
+                'http-equiv': {
+                    'Content-Security-Policy': {
+                        'default-src': "'self'",
+                        'connect-src': "'self' wss://s-apse1b-nss-208.asia-southeast1.firebasedatabase.app https://blchatapp01-default-rtdb.asia-southeast1.firebasedatabase.app",
+                        'script-src': "'self' 'unsafe-eval' https://blchatapp01-default-rtdb.asia-southeast1.firebasedatabase.app"
+                    }
+                }
+            }
         }),
         new HtmlWebpackPlugin({
             template: './public/main.html', // main.html のテンプレート
             filename: 'main.html', // 出力される HTML ファイル名
             inject: true, // バンドルされた JS を自動的に挿入
+            meta: {
+                'http-equiv': {
+                    'Content-Security-Policy': {
+                        'default-src': "'self'",
+                        'connect-src': "'self' wss://s-apse1b-nss-208.asia-southeast1.firebasedatabase.app https://blchatapp01-default-rtdb.asia-southeast1.firebasedatabase.app",
+                        'script-src': "'self' 'unsafe-eval' https://blchatapp01-default-rtdb.asia-southeast1.firebasedatabase.app"
+                    }
+                }
+            }
         }),
         new CopyWebpackPlugin({
             patterns: [
@@ -61,5 +79,5 @@ module.exports = {
         historyApiFallback: true, // シングルページアプリケーションのルーティングをサポート
         compress: true, // gzip 圧縮を有効化
         port: 8080, // 開発サーバーのポート番号
-    },
+    }
 };
